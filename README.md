@@ -23,8 +23,6 @@ $ ccwc test.txt
 
 $ echo "Hi there" | ccwc
 1 2 9
-
-
 ```
 
 ## Implementation
