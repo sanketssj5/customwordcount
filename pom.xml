@@ -6,7 +6,7 @@
 
     <groupId>com.opensource</groupId>
     <artifactId>customwordcount</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
@@ -39,7 +39,7 @@
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                     <finalName>${project.artifactId}-${project.version}</finalName>
-                    <appendAssemblyId>false</appendAssemblyId>
+                    <appendAssemblyId>false</appendAssemblyId> <!-- this prevents from appending -jar-with-dependencies suffix to the final generated jar -->
                 </configuration>
                 <executions>
                     <execution>
