@@ -19,12 +19,17 @@ class AppStarter {
     public static void main(String args[]) throws IOException {
         Arguments arguments = parseArguments(args);
 
+        // read input from file if present, else stdin, else print error
         BufferedReader bufferedReader = getInputStreamReader(arguments);
         CharacterEventSource charEventSource = new CharacterEventSource(bufferedReader);
+
+        // add listeners (ex: wordCounter, lineCounter etc) based on arguments provided by the user
         addLisentersBasedOnArgs(arguments, charEventSource);
         charEventSource.process();
 
+        // sort the listeners in order to print no. of lines first followed by no. of words and so on..
         charEventSource.sortListeners();
+
         List<String> ouputItems = getOutputItemsForDisplay(arguments, charEventSource);
 
         String output = String.join(" ", ouputItems);
