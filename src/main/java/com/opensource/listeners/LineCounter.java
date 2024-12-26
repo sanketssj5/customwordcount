@@ -1,4 +1,4 @@
-package com.opensource.observers;
+package com.opensource.listeners;
 
 public class LineCounter implements CharacterEventListener {
 

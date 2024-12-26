@@ -1,6 +1,6 @@
 package com.opensource.charactereventsource;
 
-import com.opensource.observers.CharacterEventListener;
+import com.opensource.listeners.CharacterEventListener;
 
 import java.io.*;
 import java.util.ArrayList;

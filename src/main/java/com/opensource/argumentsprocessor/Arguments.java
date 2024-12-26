@@ -9,19 +9,19 @@ import java.io.File;
 
 public class Arguments {
     @Parameter(names={"-l", "--lines"}, description = "Count Lines")
-    Boolean countLines = false;
+    private boolean countLines = false;
 
     @Parameter(converter =  FileConverter.class)
-    File file = null;
+    private File file = null;
 
     @Parameter(names="-c")
-    boolean showBytes = false;
+    private boolean showBytes = false;
 
     @Parameter(names="-w")
-    boolean countWords = false;
+    private boolean countWords = false;
 
     @Parameter(names="-m")
-    boolean countChars = false;
+    private boolean countChars = false;
 
     public Boolean getCountLines() {
         return countLines;
@@ -35,13 +35,12 @@ public class Arguments {
         return showBytes;
     }
 
-    public boolean isCountWords() {
+    public boolean countWords() {
         return countWords;
     }
 
-    public boolean isCountChars() {
+    public boolean countCharacters() {
         return countChars;
     }
-
 
 }

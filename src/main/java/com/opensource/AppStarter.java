@@ -1,7 +1,7 @@
 package com.opensource;
 
 import com.opensource.argumentsprocessor.Arguments;
-import com.opensource.observers.*;
+import com.opensource.listeners.*;
 import com.opensource.charactereventsource.CharacterEventSource;
 
 import java.io.*;
@@ -20,12 +20,12 @@ class AppStarter {
         Arguments arguments = parseArguments(args);
 
         BufferedReader bufferedReader = getInputStreamReader(arguments);
-        CharacterEventSource charEventEmitter = new CharacterEventSource(bufferedReader);
-        addLisentersBasedOnArguments(arguments, charEventEmitter);
-        charEventEmitter.process();
+        CharacterEventSource charEventSource = new CharacterEventSource(bufferedReader);
+        addLisentersBasedOnArgs(arguments, charEventSource);
+        charEventSource.process();
 
-        charEventEmitter.sortListeners();
-        List<String> ouputItems = getOutputItemsForDisplay(arguments, charEventEmitter);
+        charEventSource.sortListeners();
+        List<String> ouputItems = getOutputItemsForDisplay(arguments, charEventSource);
 
         String output = String.join(" ", ouputItems);
         System.out.println(output);
@@ -58,13 +58,13 @@ class AppStarter {
         return ouputItems;
     }
 
-    private static void addLisentersBasedOnArguments(Arguments arguments, CharacterEventSource charEventEmitter) {
+    private static void addLisentersBasedOnArgs(Arguments arguments, CharacterEventSource charEventEmitter) {
         boolean noArgumentProvided = true;
-        if (arguments.isCountWords()) {
+        if (arguments.countWords()) {
             noArgumentProvided = false;
             charEventEmitter.attach(new WordCounter());
         }
-        if (arguments.isCountChars()) {
+        if (arguments.countCharacters()) {
             noArgumentProvided = false;
             charEventEmitter.attach(new CharacterCounter());
         }
