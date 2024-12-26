@@ -4,6 +4,7 @@ public class CharacterCounter implements CharacterEventListener {
 
     int count = 0;
     int sortRank = 3;
+
     public CharacterCounter() {
 
     }

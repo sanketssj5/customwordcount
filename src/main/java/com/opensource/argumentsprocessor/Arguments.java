@@ -8,19 +8,19 @@ import java.io.File;
 
 
 public class Arguments {
-    @Parameter(names={"-l", "--lines"}, description = "Count Lines")
+    @Parameter(names = {"-l", "--lines"}, description = "Count Lines")
     private boolean countLines = false;
 
-    @Parameter(converter =  FileConverter.class)
+    @Parameter(converter = FileConverter.class)
     private File file = null;
 
-    @Parameter(names="-c")
+    @Parameter(names = "-c")
     private boolean showBytes = false;
 
-    @Parameter(names="-w")
+    @Parameter(names = "-w")
     private boolean countWords = false;
 
-    @Parameter(names="-m")
+    @Parameter(names = "-m")
     private boolean countChars = false;
 
     public Boolean getCountLines() {

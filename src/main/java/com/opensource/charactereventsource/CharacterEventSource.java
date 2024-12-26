@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CharacterEventSource {
-    List<CharacterEventListener> CharacterEventListeners = new ArrayList<>();
+    List<CharacterEventListener> eventListeners = new ArrayList<>();
     Reader reader;
 
     public CharacterEventSource(Reader reader) {
@@ -18,27 +18,27 @@ public class CharacterEventSource {
 
     public void process() throws IOException {
         int c;
-        while( (c= reader.read()) != -1) {
-            for(CharacterEventListener CharacterEventListener : CharacterEventListeners) {
-                CharacterEventListener.updated(c);
+        while ((c = reader.read()) != -1) {
+            for (CharacterEventListener listener : eventListeners) {
+                listener.updated(c);
             }
         }
     }
 
 
-    public void attach(CharacterEventListener CharacterEventListener) {
-        CharacterEventListeners.add(CharacterEventListener);
+    public void attach(CharacterEventListener listener) {
+        eventListeners.add(listener);
     }
 
-    public void detach(CharacterEventListener CharacterEventListener) {
-        CharacterEventListeners.remove(CharacterEventListener);
+    public void detach(CharacterEventListener listener) {
+        eventListeners.remove(listener);
     }
 
-    public List<CharacterEventListener> getObservers() {
-        return CharacterEventListeners;
+    public List<CharacterEventListener> getListeners() {
+        return eventListeners;
     }
 
     public void sortListeners() {
-        Collections.sort(CharacterEventListeners, Comparator.comparingInt(CharacterEventListener::getSortRank));
+        Collections.sort(eventListeners, Comparator.comparingInt(CharacterEventListener::getSortRank));
     }
 }

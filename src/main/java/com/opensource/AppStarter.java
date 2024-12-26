@@ -48,7 +48,7 @@ class AppStarter {
 
     private static List<String> getOutputItemsForDisplay(Arguments arguments, CharacterEventSource stream) {
         List<String> ouputItems = new ArrayList<>();
-        for (CharacterEventListener CharacterEventListener : stream.getObservers()) {
+        for (CharacterEventListener CharacterEventListener : stream.getListeners()) {
             ouputItems.add(String.valueOf(CharacterEventListener.getCount()));
         }
 

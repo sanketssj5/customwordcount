@@ -39,6 +39,7 @@
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                     <finalName>${project.artifactId}-${project.version}</finalName>
+                    <outputDirectory>bash/</outputDirectory>
                     <appendAssemblyId>false</appendAssemblyId> <!-- this prevents from appending -jar-with-dependencies suffix to the final generated jar -->
                 </configuration>
                 <executions>
